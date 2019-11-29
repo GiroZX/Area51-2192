@@ -10,6 +10,17 @@ namespace HangMan
     {
         static void Main(string[] args)
         {
+
+            string secretWord = "pantalones";
+            string letter = "";
+
+            Console.WriteLine("Ingrese una letra:");
+            letter = Console.ReadLine();
+            Console.WriteLine(">" + letter);
+
+
+
+            Console.ReadLine();
         }
     }
 }
