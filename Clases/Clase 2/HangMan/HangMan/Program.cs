@@ -10,6 +10,7 @@ namespace HangMan
     {
         static void Main(string[] args)
         {
+            /*
 
             string secretWord = "pantalones";
             string tempWord = "";
@@ -35,7 +36,7 @@ namespace HangMan
                 //Console.WriteLine(">" + letter);
 
                 tempWord = "";
-                /*foreach (char c in secretWord)
+                //*foreach (char c in secretWord)
                 {
                     if (letter == "" + c)
                     {
@@ -46,7 +47,7 @@ namespace HangMan
                     {
                         tempWord += "*";
                     }
-                }*/
+                }//
                 for (int i = 0; i < secretWord.Length; i++)
                 {
                     if (letter == "" + secretWord[i])
@@ -79,6 +80,58 @@ namespace HangMan
             { Console.WriteLine("YOUR SOUL IS MINE!!!"); }
 
                 Console.ReadLine();
+
+            */
+
+            GameManager gameManager = new GameManager();
+            Player player = new Player();
+            Board board = new Board();
+
+            gameManager.SetSecretWord("zAPatilLas");
+
+            while (gameManager.isPlaying)
+            {
+                board.Clear();
+                board.Draw(player.Health());
+
+                
+                board.Draw(gameManager.publicWord);
+
+                string letter = player.EnterWord();
+                if (gameManager.CheckLetter(letter)){
+                    gameManager.UpdatePublicWord(letter);
+                }
+                else
+                {
+                    player.Damage();
+                }
+
+
+
+                //OPTION 1
+                /*
+                if (player.IsDead())
+                {
+                    gameManager.isPlaying = false;
+                }
+                */
+            }
+
+            // OPTION 1
+            /*
+            board.Clear();
+            board.Draw(player.Health());
+            board.Draw("Better luck next time, sucker.");
+            */
+
+            if (gameManager.IsWin())
+            {
+                board.Draw("Congrats, you did it!");
+            }
+
+
+            board.Close();
+
         }
     }
 }
