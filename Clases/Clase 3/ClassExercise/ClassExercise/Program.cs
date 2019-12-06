@@ -15,6 +15,9 @@ namespace ClassExercise
             Console.WriteLine("\t2-Warrior");
             Console.WriteLine("\t3-Wizard");
             string type = Console.ReadLine();
+            int hp = 20;
+            int mp = 50;
+            Stats stats = new Stats();
 
             Console.WriteLine("Name:");
             string name = Console.ReadLine();
@@ -22,15 +25,15 @@ namespace ClassExercise
             Character myCharacter = null;
             switch (type){
                 case "1":
-                    myCharacter = new Rogue(name);
+                    myCharacter = new Rogue(name, hp, stats);
                     break;
 
                 case "2":
-                    myCharacter = new Warrior(name);
+                    myCharacter = new Warrior(name, hp, stats);
                     break;
 
                 case "3":
-                    myCharacter = new Wizard(name);
+                    myCharacter = new Wizard(name, hp, mp, stats);
                     break;
 
                 default:

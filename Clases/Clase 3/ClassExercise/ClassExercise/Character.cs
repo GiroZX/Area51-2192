@@ -33,7 +33,7 @@ namespace ClassExercise
             Console.WriteLine("You walk: 'Is that a penny?'");
         }
 
-        public void ShowActionMenu()
+        public virtual void ShowActionMenu()
         {
             Console.WriteLine("What will you do?");
             Console.WriteLine("=================");
@@ -41,7 +41,7 @@ namespace ClassExercise
             Console.WriteLine("2 - Jump");
             Console.WriteLine("3 - Walk");
 
-            string action = Console.ReadLine();
+           /* string action = Console.ReadLine();
             switch (action)
             {
                 case "1":
@@ -54,7 +54,9 @@ namespace ClassExercise
                     Walk();
                     break;
 
+                    
             }
+            ShowActionMenu();*/
         }
 
 

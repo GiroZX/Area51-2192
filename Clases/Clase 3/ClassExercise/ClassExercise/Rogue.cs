@@ -12,5 +12,11 @@ namespace ClassExercise
         {
             Console.WriteLine("Creando Rogue...");
         }
+
+        public void Steal()
+        {
+            Console.WriteLine("Steal");
+        }
+
     }
 }
