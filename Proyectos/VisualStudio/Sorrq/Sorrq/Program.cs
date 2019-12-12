@@ -10,13 +10,19 @@ namespace Sorrq
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("State thy name:");
+            Console.WriteLine("Declare vuestro nombre:");
             string name = Console.ReadLine();
-            int hp = 20;
+            int hp = 10;
             int dex = 6;
             int wis = 9;
+            int ammo = 8;
 
-            Console.WriteLine("Hello " + name + ", and welcome to your short adventure as a detective");
+            Console.WriteLine("Saludos " + name + ", y bienvenido a su corta aventura como un detective.");
+            Protagonist myProtagonist;
+
+            
+            myProtagonist.ShowActionMenu();
+
             Console.ReadLine();
         }
     }

@@ -8,5 +8,11 @@ namespace Sorrq
 {
     class Vampire : Enemy
     {
+
+        void AttackBite()
+        {
+            Console.WriteLine("The Vampire bites you!");
+            //Protagonist.HP = -2;
+        }
     }
 }

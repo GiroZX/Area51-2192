@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Sorrq
 {
-    class Equipment
+   abstract class Equipment
     {
     }
 }

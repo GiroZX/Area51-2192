@@ -8,12 +8,17 @@ namespace Sorrq
 {
     class Gun : Equipment
     {
-        public int ammo;
+        //public int ammo;
 
-        public void Shoot()
-        {
+        //public void Shoot()
+        //{
+        //    ammo--;
+        //}
 
-        }
+        //public void AmmoCheck()
+        //{
+        //    Console.WriteLine("Actualmente tienes " + ammo + " balas.");
+        //}
 
     }
 }

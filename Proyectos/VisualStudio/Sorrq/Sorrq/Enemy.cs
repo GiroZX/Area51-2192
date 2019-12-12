@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Sorrq
 {
-    class Enemy
+   abstract class Enemy
     {
+        public int enemyHP;
     }
 }
