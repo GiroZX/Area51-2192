@@ -15,5 +15,29 @@ namespace ClassExercise
             Console.WriteLine("Creando Warrior...");
 
         }
+
+        public override void ShowActionMenu()
+        {
+            base.ShowActionMenu();
+
+            string action = Console.ReadLine();
+            switch (action)
+            {
+                case "1":
+                    Walk();
+                    break;
+
+                case "2":
+                    Jump();
+                    break;
+
+                case "3":
+                    Attack();
+                    break;
+            }
+
+            ShowActionMenu();
+        }
+
     }
 }
