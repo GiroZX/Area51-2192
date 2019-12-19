@@ -1,0 +1,7 @@
+C:\Users\Intel\Desktop\Area51\Area51-2192\Proyectos\VisualStudio\Sorrq\Sorrq\bin\Debug\Sorrq.exe.config
+C:\Users\Intel\Desktop\Area51\Area51-2192\Proyectos\VisualStudio\Sorrq\Sorrq\bin\Debug\Sorrq.exe
+C:\Users\Intel\Desktop\Area51\Area51-2192\Proyectos\VisualStudio\Sorrq\Sorrq\bin\Debug\Sorrq.pdb
+C:\Users\Intel\Desktop\Area51\Area51-2192\Proyectos\VisualStudio\Sorrq\Sorrq\obj\Debug\Sorrq.csprojAssemblyReference.cache
+C:\Users\Intel\Desktop\Area51\Area51-2192\Proyectos\VisualStudio\Sorrq\Sorrq\obj\Debug\Sorrq.csproj.CoreCompileInputs.cache
+C:\Users\Intel\Desktop\Area51\Area51-2192\Proyectos\VisualStudio\Sorrq\Sorrq\obj\Debug\Sorrq.exe
+C:\Users\Intel\Desktop\Area51\Area51-2192\Proyectos\VisualStudio\Sorrq\Sorrq\obj\Debug\Sorrq.pdb
