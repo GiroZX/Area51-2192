@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour {
+
+    static public Player instance;
+
     [SerializeField]
     private SpriteRenderer spriteRenderer;
     private Rigidbody2D rbody2D;
@@ -10,11 +13,19 @@ public class Player : MonoBehaviour {
     public float speed = 1f;
     public Animator animator;
 
+    public Vector3 startPos;
+
     //Compara la velocidad con un float zero absoluto
     public bool grounded { get { return RoundAbsoluteToZero(rbody2D.velocity.y) == 0f; } }
 
     // Start is called before the first frame update
     void Start() {
+        instance = this;
+        DontDestroyOnLoad(gameObject);
+
+        startPos = transform.position;
+
+
         spriteRenderer = GetComponent<SpriteRenderer>();
         rbody2D = GetComponent<Rigidbody2D>();
     }
@@ -32,8 +43,14 @@ public class Player : MonoBehaviour {
         MyTranslate(Vector3.right * h * speed);
 
         if (grounded && Input.GetKeyDown(KeyCode.Space))
-            rbody2D.AddForce(Vector2.up * 5, ForceMode2D.Impulse);
+            rbody2D.AddForce(Vector2.up * 8, ForceMode2D.Impulse);
 
+    }
+
+    private void OnCollisionEnter2D(Collision2D other) {
+        if (col.gameObject.tag == "DeathZone"){
+            transform.position = startPos;
+        }
     }
 
     void MyTranslate(Vector3 translateVector) {
