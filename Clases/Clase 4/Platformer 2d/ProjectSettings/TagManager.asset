@@ -41,6 +41,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Protagonist
-    uniqueID: 1498022301
+  - name: Ground
+    uniqueID: 3709053953
+    locked: 0
+  - name: Player
+    uniqueID: 2367453595
+    locked: 0
+  - name: Platforms
+    uniqueID: 2972327091
     locked: 0
