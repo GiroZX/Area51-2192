@@ -3,12 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Finish : MonoBehaviour{
-
-    private void OnTriggerEnter2D(Collider2D col) {
+public class Finish : MonoBehaviour
+{
+    void OnTriggerEnter2D(Collider2D col) {
         if (col.tag == "Player")
-        SceneManager.LoadScene(1);
+            SceneManager.LoadScene(1);
     }
-
-
 }

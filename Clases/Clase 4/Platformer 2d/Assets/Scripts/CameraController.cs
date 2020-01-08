@@ -10,11 +10,11 @@ public class CameraController : MonoBehaviour
     void Start()
     {
         if (target == null)
-        target = Player.instance.transform;
+            target = Player.instance.transform;
     }
 
-
-    void LateUpdate(){
+    void LateUpdate()
+    {
         Vector3 pos = target.position;
         pos.z = -10;
         transform.position = pos;

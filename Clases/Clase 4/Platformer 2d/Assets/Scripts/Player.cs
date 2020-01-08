@@ -1,22 +1,49 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Player : MonoBehaviour {
 
     static public Player instance;
+    static public void SetPosition(Vector3 pos){
+        pos.z = 0;
+        instance.transform.position = pos;
+    }
+
+    static public Vector3 setPosition{
+        set{
+            Vector3 pos = value;
+            pos.z = 0;
+            instance.transform.position = pos;
+        }
+    }
+
+    static public Transform SetPosition2 {
+        set {
+            Vector3 pos = value.position;
+            pos.z = 0;
+            instance.transform.position = pos;            
+        }
+    }
+
+
 
     [SerializeField]
     private SpriteRenderer spriteRenderer;
     private Rigidbody2D rbody2D;
+    private bool onGround = false;
+    
 
     public float speed = 1f;
+    public float jumpForce = 10f;
     public Animator animator;
 
     public Vector3 startPos;
 
-    //Compara la velocidad con un float zero absoluto
-    public bool grounded { get { return RoundAbsoluteToZero(rbody2D.velocity.y) == 0f; } }
+    public bool grounded {
+        get {
+            return RoundAbsoluteToZero(rbody2D.velocity.y) == 0f ||
+            onGround;
+        }
+    }
 
     // Start is called before the first frame update
     void Start() {
@@ -24,7 +51,6 @@ public class Player : MonoBehaviour {
         DontDestroyOnLoad(gameObject);
 
         startPos = transform.position;
-
 
         spriteRenderer = GetComponent<SpriteRenderer>();
         rbody2D = GetComponent<Rigidbody2D>();
@@ -43,15 +69,24 @@ public class Player : MonoBehaviour {
         MyTranslate(Vector3.right * h * speed);
 
         if (grounded && Input.GetKeyDown(KeyCode.Space))
-            rbody2D.AddForce(Vector2.up * 8, ForceMode2D.Impulse);
+            rbody2D.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
 
     }
 
-    private void OnCollisionEnter2D(Collision2D other) {
-        if (col.gameObject.tag == "DeathZone"){
+    void OnCollisionEnter2D(Collision2D col) {
+        if (col.gameObject.tag == "DeathZone") {
             transform.position = startPos;
         }
+        
+        if (col.gameObject.tag == "Floor"){
+            onGround = true;
+        }
     }
+
+    private void OnCollisionExit2D(Collision2D col) {
+        onGround = false;
+    }
+
 
     void MyTranslate(Vector3 translateVector) {
         transform.localPosition += translateVector;
