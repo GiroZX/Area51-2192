@@ -5,32 +5,62 @@ using UnityEngine.UI;
 
 public class HealthBarController : MonoBehaviour
 {
-    public Image bar;
-    public float maxLife = 50;
-    public float currentLife;
+    private float width;
+
+    public RectTransform bar;
+    public RectTransform barPoint;
+
+    public float maxLife = 10;
+    public float _currentLife;
+
+    public float currentLife {
+        set {
+            _currentLife = Mathf.Clamp(value, 0, maxLife);
+            UpdateBar();
+        }
+
+        get {
+            return _currentLife;
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        currentLife = maxLife;
+        width = barPoint.sizeDelta.x;
+        _currentLife = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.O)){
-            //bar.fillAmount -= 0.1f;
-            currentLife--;
-
-        }
-
-        if (Input.GetKeyDown(KeyCode.P)){
-            //bar.fillAmount -= 0.1f;            
-            currentLife++;
-        }
-
-        currentLife = Mathf.Clamp(currentLife, 0, maxLife);
-        bar.fillAmount = currentLife/maxLife;
-
+       
     }
+
+    void UpdateBar() {
+        ClearLife();
+        AddLife();
+    }
+
+    void ClearLife() {
+        for (int i = 0; i < bar.childCount; i++)
+            Destroy(bar.GetChild(i).gameObject);
+    }
+
+    void AddLife() {
+        for (int i = 0; i < currentLife; i++) {
+            RectTransform point = Instantiate<RectTransform>(barPoint);
+            point.parent = bar;
+            point.localScale = Vector3.one;
+            point.localPosition = new Vector3(
+                width * i,
+                0,
+                0);
+        }
+    }
+
+    void RemoveLife() {
+        Destroy(bar.GetChild(bar.childCount-1).gameObject);
+    }
+
 }

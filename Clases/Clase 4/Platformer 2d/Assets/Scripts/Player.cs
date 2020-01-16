@@ -3,34 +3,41 @@
 public class Player : MonoBehaviour {
 
     static public Player instance;
-    static public void SetPosition(Vector3 pos){
+
+    static public void SetPosition(Vector3 pos) {
         pos.z = 0;
         instance.transform.position = pos;
     }
 
-    static public Vector3 setPosition{
-        set{
+    static public Vector3 setPosition {
+        set {
             Vector3 pos = value;
             pos.z = 0;
             instance.transform.position = pos;
         }
     }
 
-    static public Transform SetPosition2 {
+    static public Transform setPosition2 {
         set {
             Vector3 pos = value.position;
             pos.z = 0;
-            instance.transform.position = pos;            
+            instance.transform.position = pos;
         }
     }
 
+    static public HealthBarController HealthBar {
+        set {
+            instance.healthBarController = value;
+        }
+    }
 
 
     [SerializeField]
     private SpriteRenderer spriteRenderer;
     private Rigidbody2D rbody2D;
     private bool onGround = false;
-    
+    [SerializeField]
+    private HealthBarController healthBarController;
 
     public float speed = 1f;
     public float jumpForce = 10f;
@@ -38,18 +45,23 @@ public class Player : MonoBehaviour {
 
     public Vector3 startPos;
 
+    public float maxLife = 50;
+    public float currentLife;
+
     public bool grounded {
         get {
             return RoundAbsoluteToZero(rbody2D.velocity.y) == 0f ||
-            onGround;
+                    onGround;
         }
+    }
+
+    void Awake() {
+        instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
     // Start is called before the first frame update
     void Start() {
-        instance = this;
-        DontDestroyOnLoad(gameObject);
-
         startPos = transform.position;
 
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -71,6 +83,13 @@ public class Player : MonoBehaviour {
         if (grounded && Input.GetKeyDown(KeyCode.Space))
             rbody2D.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
 
+
+        if (Input.GetKeyDown(KeyCode.O))
+            TakeDamage(1);
+
+        if (Input.GetKeyDown(KeyCode.P))
+            Heal(2);
+
     }
 
     void OnCollisionEnter2D(Collision2D col) {
@@ -78,15 +97,16 @@ public class Player : MonoBehaviour {
             transform.position = startPos;
         }
         
-        if (col.gameObject.tag == "Floor"){
+        if (col.gameObject.tag == "Floor") {
             onGround = true;
         }
     }
 
-    private void OnCollisionExit2D(Collision2D col) {
-        onGround = false;
+    void OnCollisionExit2D(Collision2D col) {
+        if (col.gameObject.tag == "Floor") {
+            onGround = false;
+        }
     }
-
 
     void MyTranslate(Vector3 translateVector) {
         transform.localPosition += translateVector;
@@ -98,5 +118,15 @@ public class Player : MonoBehaviour {
             decimalValue = 0f;
         }
         return decimalValue;
+    }
+
+    void TakeDamage(float damage) {
+        currentLife -= damage;
+        healthBarController.currentLife = currentLife;
+    }
+
+    void Heal(float heal) {
+        currentLife += heal;
+        healthBarController.currentLife = currentLife;
     }
 }
