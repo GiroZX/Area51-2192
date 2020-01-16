@@ -4,6 +4,7 @@ public class Player : MonoBehaviour {
 
     static public Player instance;
 
+<<<<<<< HEAD
     static public void SetPosition(Vector3 pos) {
         pos.z = 0;
         instance.transform.position = pos;
@@ -30,6 +31,8 @@ public class Player : MonoBehaviour {
             instance.healthBarController = value;
         }
     }
+=======
+>>>>>>> 1b7e234aae3278009df60b2429daa69d76a421f9
 
 
     [SerializeField]
@@ -45,6 +48,7 @@ public class Player : MonoBehaviour {
 
     public Vector3 startPos;
 
+<<<<<<< HEAD
     public float maxLife = 50;
     public float currentLife;
 
@@ -62,6 +66,19 @@ public class Player : MonoBehaviour {
 
     // Start is called before the first frame update
     void Start() {
+=======
+    public bool grounded {
+        get {
+            return RoundAbsoluteToZero(rbody2D.velocity.y) == 0f;
+        }
+    }
+
+    // Start is called before the first frame update
+    void Start() {
+        instance = this;
+        DontDestroyOnLoad(gameObject);
+
+>>>>>>> 1b7e234aae3278009df60b2429daa69d76a421f9
         startPos = transform.position;
 
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -83,6 +100,7 @@ public class Player : MonoBehaviour {
         if (grounded && Input.GetKeyDown(KeyCode.Space))
             rbody2D.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
 
+<<<<<<< HEAD
 
         if (Input.GetKeyDown(KeyCode.O))
             TakeDamage(1);
@@ -90,12 +108,15 @@ public class Player : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.P))
             Heal(2);
 
+=======
+>>>>>>> 1b7e234aae3278009df60b2429daa69d76a421f9
     }
 
     void OnCollisionEnter2D(Collision2D col) {
         if (col.gameObject.tag == "DeathZone") {
             transform.position = startPos;
         }
+<<<<<<< HEAD
         
         if (col.gameObject.tag == "Floor") {
             onGround = true;
@@ -106,7 +127,10 @@ public class Player : MonoBehaviour {
         if (col.gameObject.tag == "Floor") {
             onGround = false;
         }
+=======
+>>>>>>> 1b7e234aae3278009df60b2429daa69d76a421f9
     }
+
 
     void MyTranslate(Vector3 translateVector) {
         transform.localPosition += translateVector;
