@@ -4,7 +4,6 @@ public class Player : MonoBehaviour {
 
     static public Player instance;
 
-<<<<<<< HEAD
     static public void SetPosition(Vector3 pos) {
         pos.z = 0;
         instance.transform.position = pos;
@@ -31,8 +30,6 @@ public class Player : MonoBehaviour {
             instance.healthBarController = value;
         }
     }
-=======
->>>>>>> 1b7e234aae3278009df60b2429daa69d76a421f9
 
 
     [SerializeField]
@@ -48,10 +45,13 @@ public class Player : MonoBehaviour {
 
     public Vector3 startPos;
 
-<<<<<<< HEAD
+    [Header("Life")]
     public float maxLife = 50;
+    [Range(0f, 50f)]
     public float currentLife;
-
+    
+    [Header("Attack")] 
+    public GameObject bullet;
     public bool grounded {
         get {
             return RoundAbsoluteToZero(rbody2D.velocity.y) == 0f ||
@@ -66,19 +66,6 @@ public class Player : MonoBehaviour {
 
     // Start is called before the first frame update
     void Start() {
-=======
-    public bool grounded {
-        get {
-            return RoundAbsoluteToZero(rbody2D.velocity.y) == 0f;
-        }
-    }
-
-    // Start is called before the first frame update
-    void Start() {
-        instance = this;
-        DontDestroyOnLoad(gameObject);
-
->>>>>>> 1b7e234aae3278009df60b2429daa69d76a421f9
         startPos = transform.position;
 
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -97,26 +84,29 @@ public class Player : MonoBehaviour {
         //transform.Translate(Vector3.right * h * speed);
         MyTranslate(Vector3.right * h * speed);
 
-        if (grounded && Input.GetKeyDown(KeyCode.Space))
+        if (grounded && Input.GetKeyDown(KeyCode.Z))
             rbody2D.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
 
-<<<<<<< HEAD
 
         if (Input.GetKeyDown(KeyCode.O))
             TakeDamage(1);
 
         if (Input.GetKeyDown(KeyCode.P))
             Heal(2);
+        
+        if (Input.GetKeyDown(KeyCode.X))
+            Attack();
 
-=======
->>>>>>> 1b7e234aae3278009df60b2429daa69d76a421f9
+        if (Input.GetKeyDown(KeyCode.C))
+            FastAttack();
+
+
     }
 
     void OnCollisionEnter2D(Collision2D col) {
         if (col.gameObject.tag == "DeathZone") {
             transform.position = startPos;
         }
-<<<<<<< HEAD
         
         if (col.gameObject.tag == "Floor") {
             onGround = true;
@@ -127,10 +117,7 @@ public class Player : MonoBehaviour {
         if (col.gameObject.tag == "Floor") {
             onGround = false;
         }
-=======
->>>>>>> 1b7e234aae3278009df60b2429daa69d76a421f9
     }
-
 
     void MyTranslate(Vector3 translateVector) {
         transform.localPosition += translateVector;
@@ -152,5 +139,21 @@ public class Player : MonoBehaviour {
     void Heal(float heal) {
         currentLife += heal;
         healthBarController.currentLife = currentLife;
+    }
+
+    void Attack(){
+        Instantiate<GameObject>(
+            bullet,
+            transform.position,
+            Quaternion.identity);
+    }
+    void FastAttack(){
+        GameObject clone = Instantiate<GameObject>(
+            bullet,
+            transform.position,
+            Quaternion.identity);
+        
+        BulletLog bulletLog = clone.GetComponent<BulletLog>();
+        bulletLog.Init(10f);
     }
 }

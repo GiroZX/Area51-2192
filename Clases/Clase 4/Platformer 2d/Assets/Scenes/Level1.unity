@@ -165,7 +165,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< HEAD
 --- !u!1 &345140020
 GameObject:
   m_ObjectHideFlags: 0
@@ -232,8 +231,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-=======
->>>>>>> 1b7e234aae3278009df60b2429daa69d76a421f9
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -331,7 +328,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< HEAD
 --- !u!1 &722952501
 GameObject:
   m_ObjectHideFlags: 0
@@ -376,8 +372,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-=======
->>>>>>> 1b7e234aae3278009df60b2429daa69d76a421f9
 --- !u!1 &750484029
 GameObject:
   m_ObjectHideFlags: 0
@@ -1012,7 +1006,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
-<<<<<<< HEAD
 --- !u!224 &1335473439 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3128080809555978185, guid: 9f3e14cdc4fafb44d9cee90f865311a7,
@@ -1031,8 +1024,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a751eaa83a46a48458ac6ee6ce3000ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-=======
->>>>>>> 1b7e234aae3278009df60b2429daa69d76a421f9
 --- !u!1 &1389335862
 GameObject:
   m_ObjectHideFlags: 0
@@ -1268,7 +1259,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 0}
-<<<<<<< HEAD
   healthBarController: {fileID: 0}
   speed: 3
   jumpForce: 7
@@ -1276,6 +1266,7 @@ MonoBehaviour:
   startPos: {x: 0, y: 0, z: 0}
   maxLife: 50
   currentLife: 0
+  bullet: {fileID: 6406206570405764362, guid: cde9333b89a6dd74f98119613fe5d43b, type: 3}
 --- !u!1 &1700078944
 GameObject:
   m_ObjectHideFlags: 0
@@ -1375,11 +1366,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
-=======
-  speed: 3
-  jumpForce: 7
-  animator: {fileID: 1551099615}
->>>>>>> 1b7e234aae3278009df60b2429daa69d76a421f9
 --- !u!1 &1702978940
 GameObject:
   m_ObjectHideFlags: 0
@@ -1394,11 +1380,7 @@ GameObject:
   - component: {fileID: 1702978942}
   m_Layer: 0
   m_Name: Tilemap
-<<<<<<< HEAD
   m_TagString: Floor
-=======
-  m_TagString: Untagged
->>>>>>> 1b7e234aae3278009df60b2429daa69d76a421f9
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2983,7 +2965,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 803eec7b2347d5947b026fb9fa742a66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< HEAD
 --- !u!1001 &3128080808407290582
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2991,6 +2972,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1700078948}
     m_Modifications:
+    - target: {fileID: 3128080808649221470, guid: 9f3e14cdc4fafb44d9cee90f865311a7,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3128080809156456606, guid: 9f3e14cdc4fafb44d9cee90f865311a7,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3128080809555978184, guid: 9f3e14cdc4fafb44d9cee90f865311a7,
         type: 3}
       propertyPath: m_Name
@@ -3054,7 +3045,7 @@ PrefabInstance:
     - target: {fileID: 3128080809555978185, guid: 9f3e14cdc4fafb44d9cee90f865311a7,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -384.47
+      value: -318
       objectReference: {fileID: 0}
     - target: {fileID: 3128080809555978185, guid: 9f3e14cdc4fafb44d9cee90f865311a7,
         type: 3}
@@ -3101,6 +3092,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 3128080809555978231, guid: 9f3e14cdc4fafb44d9cee90f865311a7,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4088160091574853357, guid: 9f3e14cdc4fafb44d9cee90f865311a7,
         type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -3108,5 +3104,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f3e14cdc4fafb44d9cee90f865311a7, type: 3}
-=======
->>>>>>> 1b7e234aae3278009df60b2429daa69d76a421f9
