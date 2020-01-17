@@ -51,7 +51,7 @@ public class Player : MonoBehaviour {
     public float currentLife;
     
     [Header("Attack")] 
-    public GameObject bullet;
+    public BulletLog bullet;
     public bool grounded {
         get {
             return RoundAbsoluteToZero(rbody2D.velocity.y) == 0f ||
@@ -100,6 +100,8 @@ public class Player : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.C))
             FastAttack();
 
+//        if (Input.GetKeyDown(KeyCode.DownArrow))
+  //          BulletLog(bullet.direction = -1);
 
     }
 
@@ -142,18 +144,23 @@ public class Player : MonoBehaviour {
     }
 
     void Attack(){
-        Instantiate<GameObject>(
+        BulletLog clone = Instantiate<BulletLog>(
             bullet,
             transform.position,
             Quaternion.identity);
+
+        clone.Init(
+        spriteRenderer.flipX? 
+        BulletLog.Direction.left:
+        BulletLog.Direction.right);
+
     }
     void FastAttack(){
-        GameObject clone = Instantiate<GameObject>(
+        BulletLog clone = Instantiate<BulletLog>(
             bullet,
             transform.position,
             Quaternion.identity);
         
-        BulletLog bulletLog = clone.GetComponent<BulletLog>();
-        bulletLog.Init(10f);
+        clone.Init(10f);
     }
 }

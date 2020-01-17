@@ -1266,7 +1266,7 @@ MonoBehaviour:
   startPos: {x: 0, y: 0, z: 0}
   maxLife: 50
   currentLife: 0
-  bullet: {fileID: 6406206570405764362, guid: cde9333b89a6dd74f98119613fe5d43b, type: 3}
+  bullet: {fileID: 3010599838287776517, guid: cde9333b89a6dd74f98119613fe5d43b, type: 3}
 --- !u!1 &1700078944
 GameObject:
   m_ObjectHideFlags: 0
@@ -3045,12 +3045,12 @@ PrefabInstance:
     - target: {fileID: 3128080809555978185, guid: 9f3e14cdc4fafb44d9cee90f865311a7,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -318
+      value: -303
       objectReference: {fileID: 0}
     - target: {fileID: 3128080809555978185, guid: 9f3e14cdc4fafb44d9cee90f865311a7,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 284.16
+      value: 344
       objectReference: {fileID: 0}
     - target: {fileID: 3128080809555978185, guid: 9f3e14cdc4fafb44d9cee90f865311a7,
         type: 3}
