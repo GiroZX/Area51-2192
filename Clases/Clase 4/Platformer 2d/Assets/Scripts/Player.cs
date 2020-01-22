@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
+using Direction = Platformer.BulletLog.Direction;
 
+namespace Platformer{
 public class Player : MonoBehaviour {
 
     static public Player instance;
@@ -149,18 +151,23 @@ public class Player : MonoBehaviour {
             transform.position,
             Quaternion.identity);
 
-        clone.Init(
+        clone.Init(5f,
         spriteRenderer.flipX? 
-        BulletLog.Direction.left:
-        BulletLog.Direction.right);
+        Direction.left:
+        Direction.right);
 
     }
+
     void FastAttack(){
         BulletLog clone = Instantiate<BulletLog>(
             bullet,
             transform.position,
             Quaternion.identity);
         
-        clone.Init(10f);
+        clone.Init(10f,
+        spriteRenderer.flipX ?
+        Direction.left :
+        Direction.right);
     }
+}
 }

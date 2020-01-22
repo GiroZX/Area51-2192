@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 8016135807973089530}
   - component: {fileID: 3050585356045952058}
   - component: {fileID: 3010599838287776517}
-  m_Layer: 0
+  - component: {fileID: 4749425884273057542}
+  m_Layer: 9
   m_Name: BulletLog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,3 +94,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36d551842551f5f4fb91a6d631308ee8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  direction: 1
+  speed: 5
+  lifeTime: 3
+--- !u!58 &4749425884273057542
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6406206570405764362}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.375

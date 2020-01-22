@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+namespace Platformer{
 public class BulletLog : MonoBehaviour
 {
     public enum Direction
@@ -10,7 +11,7 @@ public class BulletLog : MonoBehaviour
         right = 1
     }
     public Direction direction = Direction.right;
-    public float speed = 5f;
+    public float speed;
     public float lifeTime = 3f;
     // Start is called before the first frame update
     void Start()
@@ -27,13 +28,18 @@ public class BulletLog : MonoBehaviour
         transform.position += pos;
     }
 
-    public void Init(float speed)
+    public void OnCollisionEnter2D(Collision2D collision) {
+        Destroy(gameObject);
+    }
+    public void Init(float speed, Direction direction)
     {
         this.speed = speed;
-    }
-    public void Init(Direction direction)
-    {
         this.direction = direction;
     }
+    // public void Init(Direction direction)
+    // {
+    //     this.direction = direction;
+    // }
 
+}
 }
