@@ -24,7 +24,10 @@ public class Enemy : MonoBehaviour
 
         if(bullet){
             animator.SetBool("isdeath", true);
+            Spawner.Spawn();
             Destroy(bullet);
+            Destroy(GetComponent<CapsuleCollider2D>());
+            Destroy(GetComponent<Rigidbody2D>());
         }
     }
 
