@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Platformer{
 public class Enemy : MonoBehaviour
 {
-    Animator animator;
+    private Animator animator;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,12 +24,16 @@ public class Enemy : MonoBehaviour
 
         if(bullet){
             animator.SetBool("isdeath", true);
-            Spawner.Spawn();
-            Destroy(bullet);
-            Destroy(GetComponent<CapsuleCollider2D>());
-            Destroy(GetComponent<Rigidbody2D>());
-        }
+             Destroy(GetComponent<CapsuleCollider2D>());
+             Destroy(GetComponent<Rigidbody2D>());
+            }
     }
 
-}
+        public void OnDeath() {
+            Destroy(GetComponent<Animator>());
+            SpawnController.Create();
+            Destroy(GetComponent<Enemy>());
+            //Destroy(gameObject);
+        }
+    }
 }
