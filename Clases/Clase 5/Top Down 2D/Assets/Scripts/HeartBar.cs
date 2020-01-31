@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+namespace  TopDown.UI{
 public class HeartBar : MonoBehaviour
 {
     public Image fullHeart;
@@ -62,4 +63,5 @@ public class HeartBar : MonoBehaviour
         i++)
             Instantiate<Image>(emptyHeart, transform);
     }
+}
 }
