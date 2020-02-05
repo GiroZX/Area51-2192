@@ -47,7 +47,7 @@ public class MovePointClick : MonoBehaviour
         Vector3 direction = target - transform.position;
         direction.Normalize();
 
-        while (distance > 0.1f){
+        while (distance > 0.4f){
             transform.position +=
                 direction * speed * Time.deltaTime;
 
