@@ -2,15 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace TopDown.AI
-    {
-    public enum PathType
-    {
+namespace TopDown.AI{
+    public enum PathType{
         pingpong,
         loop
     }
-    public class Path : MonoBehaviour
-    {
+    public class Path : MonoBehaviour{
+        
         public List<Vector3> points;
 
         public bool isClose = false;
